@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="newClassDiagramTemplate">
+  <ClassDiagramComponents>
+    <Class name="Seller" package="" visibility="public" xPosition="45.0" yPosition="261.0">
+      <Fields>
+        <Field name="username" type="String" visibility="private"/>
+        <Field name="product" type="ArrayList" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="User" package="" visibility="public" xPosition="584.0" yPosition="261.0">
+      <Fields>
+        <Field name="username" type="String" visibility="private"/>
+        <Field name="purchaseHistory" type="ArrayList" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Product" package="" visibility="public" xPosition="50.0" yPosition="519.0">
+      <Fields>
+        <Field name="name" type="String" visibility="private"/>
+        <Field name="stock" type="int" visibility="private"/>
+        <Field name="price" type="float" visibility="private"/>
+        <Field name="reorder" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Main" package="" visibility="public" xPosition="314.0" yPosition="26.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="searchProduct" returnType="product" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+        <Method name="purchaseProduct" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation name="Uses" source="Seller" target="Main" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="has many" source="Seller" target="Product" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="ArrayList"/>
+    <UseRelation name="Uses" source="User" target="Main" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
