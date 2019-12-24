@@ -25,8 +25,10 @@ public class Main {
     
 	public static void main(String[] args) 
         {
+        
           String jsonString = "";
           String jsonStringRetrieved = "";
+         
 		// TODO Auto-generated method stub
                 try 
                 {
@@ -36,7 +38,7 @@ public class Main {
 			while (null != (jsonString = br.readLine()))
                         {
                             
-			       System.out.println(jsonString);
+			      // System.out.println(jsonString);
                                jsonStringRetrieved = jsonString;
                               
                         }
@@ -47,38 +49,69 @@ public class Main {
 
                  //  JSONParser parser = new JSONParser();
                   JSONArray jsonArr = new JSONArray(jsonStringRetrieved);
+                  
+                 
+                 
                 
                 try 
                 {
-                    for(int i=0; i<jsonArr.length(); i++){
+                    
+                     for(int i=0; i<jsonArr.length(); i++){
                       JSONObject obj = jsonArr.getJSONObject(i);
-
+                      JSONArray stops = (JSONArray) obj.get("stops");
+                      
+                      for(int j=0; j<stops.length(); j++){
+                          JSONObject stopsObj = stops.getJSONObject(j);
+                          
+                          String name = stopsObj.getString("name");
+                          System.out.println("Train Station: " + name);
+                          String arrives = stopsObj.getString("arrives");
+                          System.out.println("Arrives: " + arrives);
+                              
+                             try
+                             {
+                                 String departs = stopsObj.getString("departs");
+                                 System.out.println("Departs: " + departs);
+                             }
+                     
+                             catch (Exception noExpected)
+                             {
+                             }
+                            
+                        
+                            
+                       }
+                      
                       String platform = obj.getString("platform");
                       String departs = obj.getString("departs");
-                      
+                      System.out.println("platform: " + platform);
+                      System.out.println("departs: " + departs);
                       
                       try
                       {
                           
                              String expected = obj.getString("expected");
-                             System.out.println(expected);
+                             System.out.println("expected: " + expected);
                       }
                       catch (Exception noExpected)
-                {
+               
+                      {
 			
-                }
+               
+                      }
                       
                     //  String arrives = obj2.getString("arrives");
 
-                      System.out.println(platform);
-                      System.out.println(departs);
+                      
                       //System.out.println(expected);
                      // System.out.println(arrives);
-}
+                     }
+                   
               //ArrayList arr = (ArrayList) parser.parse(jsonStringRetrieved);
               //JSONArray trainsArray = (JSONArray)arr.get("")
               //JSONObject trainsArray = (JSONObject) jsonObj.get("stops");
                 
+               
                 } catch (Exception ex)
                 {
 			ex.printStackTrace();
