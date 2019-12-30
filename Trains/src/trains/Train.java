@@ -8,11 +8,34 @@ import java.util.List;
 
 public class Train {
 
+    public Train(String platform, String departs, List stops) {
+        this.platform = platform;
+        this.departs = departs;
+         this.stops = stops;
+    }
+
+    public Train(String platform, String departs, String expected, List stops) {
+        this.platform = platform;
+        this.departs = departs;
+        this.expected = expected;
+        this.stops = stops;
+    }
+
+private List<Train> trains = new ArrayList<Train>();
 private List<Stop> stops = new ArrayList<Stop>();
 private String platform;
 private String departs;
 private String expected;
 
+public List<Train> getTrains() {
+        return trains;
+    }
+
+public void setTrains(List<Train> trains) {
+        this.trains = trains;
+    }
+
+    
 public List<Stop> getStops() {
 return stops;
 }
@@ -44,13 +67,5 @@ return expected;
 public void setExpected(String expected) {
 this.expected = expected;
 }
-
-
-@Override
- public String toString() {
-        return "Departs = " + departs + ", expected = " + expected
-+ ", platform = " + platform +  "]";
-    }
-
 
 }
