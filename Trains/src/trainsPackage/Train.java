@@ -1,6 +1,6 @@
 
 
-package trains;
+package trainsPackage;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -21,8 +21,8 @@ public class Train {
         this.stops = stops;
     }
 
-private List<Train> trains = new ArrayList<Train>();
-private List<Stop> stops = new ArrayList<Stop>();
+public List<Train> trains = new ArrayList<Train>();
+public List<Stop> stops = new ArrayList<Stop>();
 private String platform;
 private String departs;
 private String expected;
