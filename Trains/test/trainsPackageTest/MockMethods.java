@@ -3,15 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package trainsPackage;
+package trainsPackageTest;
 
-import trainsPackage.*;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import trainsPackage.IMethods;
+import trainsPackage.Stop;
+import trainsPackage.Train;
 
 /**
  *

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package trainsPackage;
+package trainsPackageTest;
 
 import java.util.ArrayList;
 import org.junit.After;
@@ -11,15 +11,17 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import trainsPackage.Methods;
+import trainsPackage.Train;
 import static org.junit.Assert.*;
 
 /**
  *
  * @author Walker
  */
-public class MethodsMockTests {
+public class MethodsIntegrationTests {
     
-    public MethodsMockTests() {
+    public MethodsIntegrationTests() {
     }
     
     @BeforeClass
@@ -38,11 +40,12 @@ public class MethodsMockTests {
     public void tearDown() {
     }
 
-     @Test
+  
+    @Test
     public void testGetAllTrains() {
         System.out.println("getAllTrains test running...");
         String expResult = "all trains: [0947, 0953, 1003, 1004, 1007, 1022, 1032, 1034, 1039, 1041, 1051, 1101, 1104, 1105, 1132, 1137, 1140, 1150]";
-        String result = MockMethods.getAllTrains();
+        String result = Methods.getAllTrains();
         assertEquals("Expected string not equal to result string: ",expResult, result);
        
         System.out.println("done.");
@@ -62,9 +65,9 @@ public class MethodsMockTests {
         String expResult2 = "all trains at platform 2: [0947, 0953, 1004, 1032, 1105, 1132, 1140]";
         String expResult3 = "all trains at platform 3: [1003, 1022, 1034, 1039, 1051, 1104, 1150]";
         
-        String result1 = MockMethods.getTrainsAtPlatform(platformQuery1);
-        String result2 = MockMethods.getTrainsAtPlatform(platformQuery2);
-        String result3 = MockMethods.getTrainsAtPlatform(platformQuery3);
+        String result1 = Methods.getTrainsAtPlatform(platformQuery1);
+        String result2 = Methods.getTrainsAtPlatform(platformQuery2);
+        String result3 = Methods.getTrainsAtPlatform(platformQuery3);
         
         assertEquals(platformQuery1 + ": Expected string not equal to result string: ",expResult1, result1);
         assertEquals(platformQuery2 + ": Expected string not equal to result string: ",expResult2, result2);
@@ -81,7 +84,7 @@ public class MethodsMockTests {
     public void testGetLateTrains() {
         System.out.println("getLateTrains test running...");
         String expResult = "all late trains: [1007, 1150]    Please be advised these trains are running late, plan your journey accordingly";
-        String result = MockMethods.getLateTrains();
+        String result = Methods.getLateTrains();
         assertEquals("Expected string not equal to result string: ",expResult, result);
     
          System.out.println("done.");
@@ -107,12 +110,12 @@ public class MethodsMockTests {
         String expResult5 = "all trains calling at London Paddington: [1034, 1150]";
         String expResult6 = "all trains calling at Exmouth: [1039, 1137]";
         
-        String result1 = MockMethods.getTrainsAtStation(stationQuery1);
-        String result2 = MockMethods.getTrainsAtStation(stationQuery2);
-        String result3 = MockMethods.getTrainsAtStation(stationQuery3);
-        String result4 = MockMethods.getTrainsAtStation(stationQuery4);
-        String result5 = MockMethods.getTrainsAtStation(stationQuery5);
-        String result6 = MockMethods.getTrainsAtStation(stationQuery6);
+        String result1 = Methods.getTrainsAtStation(stationQuery1);
+        String result2 = Methods.getTrainsAtStation(stationQuery2);
+        String result3 = Methods.getTrainsAtStation(stationQuery3);
+        String result4 = Methods.getTrainsAtStation(stationQuery4);
+        String result5 = Methods.getTrainsAtStation(stationQuery5);
+        String result6 = Methods.getTrainsAtStation(stationQuery6);
                        
         assertEquals(stationQuery1 + ": Expected string not equal to result string: ", expResult1, result1);
         assertEquals(stationQuery2 + ": Expected string not equal to result string: ", expResult2, result2);
@@ -131,7 +134,7 @@ public class MethodsMockTests {
     public void testPopulate() {
         System.out.println("Populate test running...");
         
-        ArrayList<Train> result = MockMethods.MockPopulate();
+        ArrayList<Train> result = Methods.Populate();
         assertTrue(result != null);
         
        
