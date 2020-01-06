@@ -363,7 +363,7 @@ public class MockMethods implements IMethods{
                 
                 
                 JSONArray jsonArr = new JSONArray(jsonStringRetrieved);
-                
+                // mock data into trains array
                 try 
                 {
                     for(int i=0; i<jsonArr.length(); i++){
@@ -375,7 +375,7 @@ public class MockMethods implements IMethods{
                       String trainDeparts = obj.getString("departs");
                       String platform = obj.getString("platform");
                     
-                      
+                      // with stops array 
                       for(int j=0; j<stops.length(); j++){
                           JSONObject stopsObj = stops.getJSONObject(j);
                           

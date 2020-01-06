@@ -146,7 +146,7 @@ public class Methods implements IMethods{
         String jsonString = "";
         String jsonStringRetrieved = "";
          
-		
+		// get API from URL
                 try 
                 {
 			URL url = new URL("http://web.socem.plymouth.ac.uk/david/trains.json");
@@ -163,6 +163,7 @@ public class Methods implements IMethods{
                 
                 JSONArray jsonArr = new JSONArray(jsonStringRetrieved);
                 
+    // into trains array
                 try 
                 {
                     for(int i=0; i<jsonArr.length(); i++){
@@ -173,21 +174,19 @@ public class Methods implements IMethods{
                       
                       String trainDeparts = obj.getString("departs");
                       String platform = obj.getString("platform");
-                     // System.out.println("Train departs at: " + trainDeparts);
-                     // System.out.println("platform: " + platform);
-                      
+                    
+                      // with stops array
                       for(int j=0; j<stops.length(); j++){
                           JSONObject stopsObj = stops.getJSONObject(j);
                           
                           String name = stopsObj.getString("name");
                           String arrives = stopsObj.getString("arrives");
-                         // System.out.println("Train Station: " + name);
-                        //  System.out.println("Arrives: " + arrives);
+                        
                           
                           try
                           {
                                  String stopDeparts = stopsObj.getString("departs");
-                              //   System.out.println("Departs stop at: " + stopDeparts);
+                             
                                 
                                  Stop newStop = new Stop(name, arrives, stopDeparts);
                                  stopsArray.add(newStop);
@@ -202,12 +201,12 @@ public class Methods implements IMethods{
                       try
                       {
                           String expected = obj.getString("expected");
-                       //   System.out.println("expected: " + expected);
+                     
                              
                           Train newTrain = new Train(platform, trainDeparts, expected ,stopsArray);
                           trainsArray.add(newTrain);
                              
-                       //   System.out.println("This train is running a little later than expected, sorry for the delay!");
+                      
                       }
                       catch (Exception noExpected)
                       {
