@@ -18,6 +18,7 @@ import org.json.JSONObject;
  */
 public class Methods implements IMethods{
     
+    // returns ALL trains in the data as a String
     public static String getAllTrains(){
         ArrayList<Train> trainsArrayInstance = Populate();
        
@@ -36,7 +37,7 @@ public class Methods implements IMethods{
         return returnAllTrainsString;
      }
      
-     
+      // returns ONLY trains at selected platform as String
     public static String getTrainsAtPlatform(String platformQuery){
         ArrayList<Train> trainsArrayInstance = Populate();;
        
@@ -63,7 +64,9 @@ public class Methods implements IMethods{
         String returnPlatformString = "all trains at platform " + platformQuery + ": " + trainsAtPlatformStringList;
         return returnPlatformString;
     }
+   
     
+// returns ONLY trains with an EXPECTED value as the are LATE as a String
       public static String getLateTrains(){
         ArrayList<Train> trainsArrayInstance = Populate();;
        
@@ -93,7 +96,7 @@ public class Methods implements IMethods{
     
       
       
-    
+      // returns ONLY trains calling at a selected station as String
         public static String getTrainsAtStation(String stationQuery){
         ArrayList<Train> trainsArrayInstance = Populate();
         ArrayList<String> trainsAtStationStringList;
@@ -136,7 +139,7 @@ public class Methods implements IMethods{
     
     
     
-    
+     // Gets the JSON data and turns in into an array of trains, each train contains an array of stops. returns the array of trains
     public static ArrayList<Train> Populate() {
         
         ArrayList<Train> trainsArray = new ArrayList<Train>();

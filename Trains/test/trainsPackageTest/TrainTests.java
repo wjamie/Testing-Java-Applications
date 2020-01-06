@@ -43,7 +43,7 @@ public class TrainTests {
     }
 
  
- 
+  // typical get and set class tests
     
     @Test
     public void testGetPlatform() {

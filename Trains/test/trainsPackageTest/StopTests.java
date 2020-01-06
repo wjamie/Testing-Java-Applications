@@ -39,7 +39,7 @@ public class StopTests {
     public void tearDown() {
     }
 
- 
+  // typical get and set class tests
     @Test
     public void testGetName() {
         System.out.println("getName");

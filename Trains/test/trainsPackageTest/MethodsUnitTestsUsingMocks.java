@@ -39,6 +39,7 @@ public class MethodsUnitTestsUsingMocks {
     public void tearDown() {
     }
 
+      // returns ALL trains in the data as a String
      @Test
     public void testGetAllTrains() {
         System.out.println("getAllTrains test running...");
@@ -48,7 +49,16 @@ public class MethodsUnitTestsUsingMocks {
        
         System.out.println("done.");
     }
-
+ 
+    @Test
+     public void testGetAllTrainsEdge() {
+        System.out.println("getAllTrains test running...");
+        String expResult = "all trains: [0001]";
+        String result = MockMethods.getAllTrainsEdge();
+        assertEquals("Expected string not equal to result string: ",expResult, result);
+       
+        System.out.println("done.");
+    }
   
     
     @Test
@@ -78,6 +88,38 @@ public class MethodsUnitTestsUsingMocks {
 
     
     
+     @Test
+    public void testGetTrainsAtPlatformEdge() {
+        System.out.println("getTrainsAtPlatform test running...");
+        
+        String platformQuery1 = "1";
+        String platformQuery2 = "2";
+        String platformQuery3 = "3";
+        
+        String expResult1 = "all trains at platform 1: [0001]";
+        String expResult2 = "all trains at platform 2: []";
+        String expResult3 = "all trains at platform 3: []";
+        
+        String result1 = MockMethods.getTrainsAtPlatformEdge(platformQuery1);
+        String result2 = MockMethods.getTrainsAtPlatformEdge(platformQuery2);
+        String result3 = MockMethods.getTrainsAtPlatformEdge(platformQuery3);
+        
+        assertEquals(platformQuery1 + ": Expected string not equal to result string: ",expResult1, result1);
+        assertEquals(platformQuery2 + ": Expected string not equal to result string: ",expResult2, result2);
+        assertEquals(platformQuery3 + ": Expected string not equal to result string: ",expResult3, result3);
+        
+      
+        System.out.println("done.");
+      
+    }
+
+    
+    
+    
+    
+    
+    
+    
     @Test
     public void testGetLateTrains() {
         System.out.println("getLateTrains test running...");
@@ -88,7 +130,15 @@ public class MethodsUnitTestsUsingMocks {
          System.out.println("done.");
     }
 
-  
+   @Test
+    public void testGetLateTrainsEdge() {
+        System.out.println("getLateTrains test running...");
+        String expResult = "all late trains: []    Please be advised these trains are running late, plan your journey accordingly";
+        String result = MockMethods.getLateTrainsEdge();
+        assertEquals("Expected string not equal to result string: ",expResult, result);
+    
+         System.out.println("done.");
+    }
     
     @Test
     public void testGetTrainsAtStation() {
@@ -126,6 +176,38 @@ public class MethodsUnitTestsUsingMocks {
         System.out.println("done.");
     }
 
+    
+    
+    @Test
+    public void testGetTrainsAtStationEdge() {
+        System.out.println("getTrainsAtStation test running...");
+       
+        
+        String stationQuery2 = "Plymouth";
+        String stationQuery3 = "Totnes";
+        
+       
+        String expResult2 = "all trains calling at Plymouth: [0001]";
+        String expResult3 = "all trains calling at Totnes: [0001]";
+     
+        
+        String result2 = MockMethods.getTrainsAtStationEdge(stationQuery2);
+        String result3 = MockMethods.getTrainsAtStationEdge(stationQuery3);
+    
+                       
+        assertEquals(stationQuery2 + ": Expected string not equal to result string: ", expResult2, result2);
+        assertEquals(stationQuery3 + ": Expected string not equal to result string: ", expResult3, result3);
+        
+        
+       
+        System.out.println("done.");
+    }
+
+    
+    
+    
+    
+    
    
      // would use timeout rule however not sure if this version of junit uses it and with what syntax
     @Test
@@ -138,5 +220,15 @@ public class MethodsUnitTestsUsingMocks {
        
        System.out.println("done.");
     }
-    
+   
+    @Test
+    public void testPopulateEdge() {
+        System.out.println("Populate test running...");
+        
+        ArrayList<Train> result = MockMethods.MockPopulateEdge();
+        assertTrue(result != null);
+        
+       
+       System.out.println("done.");
+    }
 }

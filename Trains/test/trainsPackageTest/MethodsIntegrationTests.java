@@ -40,7 +40,7 @@ public class MethodsIntegrationTests {
     public void tearDown() {
     }
 
-  
+    // returns ALL trains in the data as a String
     @Test
     public void testGetAllTrains() {
         System.out.println("getAllTrains test running...");
